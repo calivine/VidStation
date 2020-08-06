@@ -4,7 +4,7 @@ import os
 from editor import Editor
 import random
 
-class GIF_Factory:
+class GIFFactory:
 
     def make_gif(src=None, set=None, resize=1, fps=30):
         """Make gif from sequence of images. Saves to media folder.

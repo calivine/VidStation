@@ -10,7 +10,7 @@ if len(sys.argv) < 2:
     print("Usage: python app.py FILENAME")
     exit()
 else:
-    v = str(sys.argv[1]) + '.mp4'
+    v = str(sys.argv[1])
 
 count = 0
 vidcap = cv2.VideoCapture(v)

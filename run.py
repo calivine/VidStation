@@ -7,7 +7,7 @@ import subprocess
 from ioparse import Parser
 
 p = Parser().get_args()
-
+print(os.getcwd())
 home = os.getcwd()
 
 source = p.source
@@ -36,4 +36,4 @@ if p.gif:
     GIFFactory.make_gif()
 elif p.webm:
     os.chdir(SOURCE_DIR)
-    Webm(destination, fps=p.fps, bitrate=p.bitrate)
+    Webm(destination, fps=clip.fps, bitrate=clip.br)

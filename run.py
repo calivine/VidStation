@@ -47,7 +47,7 @@ if p.webm:
         print(source)
         Webm(source, start, end)
     else:
-        Webm(source)
+        Webm(os.path.join('clips', source))
 
 """
 
@@ -86,8 +86,3 @@ if p.clips is not None:
         print(to_be_processed)
     ve = VideoEditor()
     ve.paste_clips("comp_{}".format(source), to_be_processed)
-
-
-
-
-

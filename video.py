@@ -102,13 +102,10 @@ class Webm(Clip):
         self._save_webm()
 
     def _save_webm(self):
-        if os.path.exists('webm'):
-            os.chdir('webm')
-        else:
+        if not os.path.exists('webm'):
             os.mkdir('webm')
-            os.chdir('webm')
 
-        self.clip.write_videofile(os.path.join('webm', self.clip.filename[:-4]+'.webm'), fps=int(self.fps), bitrate=self.bitrate)
+        self.clip.write_videofile(os.path.join('webm', self.clip.filename[6:-4]+'.webm'), fps=int(self.fps), bitrate=self.bitrate)
 
 
 class GIF(Clip):
@@ -124,7 +121,8 @@ class GIF(Clip):
 class VideoEditor:
 
     def __init__(self):
-        pass
+        if not os.path.exists('clips'):
+            os.mkdir('clips')
 
     def paste_clips(self, destination, clips):
         """Concatenate clips together into one.
@@ -133,4 +131,3 @@ class VideoEditor:
         final_clip = concatenate_videoclips(clips)
         final_clip.write_videofile(os.path.join('clips', destination))
         final_clip.close()
-
